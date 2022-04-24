@@ -4,12 +4,12 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
  
   // 入力文字を取得
-  const user = search.value
+  const _url = url.value
  
-  if(user) {
-    // ユーザー情報取得
-    getUser(user)
+  if(_url) {
+    // html取得
+    //getUser(user)
     // 検索窓をクリア
-    search.value = ''
+    output.value = _url
   }
 })
