@@ -1,3 +1,5 @@
+// 要素を取得
+const output = document.getElementById('output')
 // submitイベントの登録
 form.addEventListener('submit', (e) => {
   // ページリダイレクトをキャンセル
@@ -10,6 +12,6 @@ form.addEventListener('submit', (e) => {
     // html取得
     //getUser(user)
     // 検索窓をクリア
-    output.value = _url
+    output.textContent = _url
   }
 })
