@@ -14,9 +14,9 @@ def get_encode(byte_array):
 
 if __name__ == '__main__':
     args = get_option()
-    if not os.path.exists('doc'):
-        os.makedirs('doc')
-    with open('doc/rob.html' ,'w',encoding='utf-8') as file:
+    if not os.path.exists('docs'):
+        os.makedirs('docs')
+    with open('docs/rob.html' ,'w',encoding='utf-8') as file:
         r=requests.get(args.url)
         encode = get_encode(r.content)
         file.write(r.content.decode(encode))
