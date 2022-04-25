@@ -1,14 +1,20 @@
 
 from argparse import ArgumentParser
-import urllib.request
+import cchardet
+import requests
 
 def get_option():
     argparser = ArgumentParser()
     argparser.add_argument('-u', '--url', help='url')
     return argparser.parse_args()
 
+def get_encode(byte_array):
+    guessed_encoding= cchardet.detect(byte_array)
+    return guessed_encoding['encoding']
+
 if __name__ == '__main__':
     args = get_option()
     with open('rob.html' ,'w',encoding='utf-8') as file:
-        html=urllib.request.urlopen(args.url)
-        file.write(html.read().decode('utf-8'))
+        r=requests.get(args.url)
+        encode = get_encode(r.content)
+        file.write(r.content.decode(encode))
