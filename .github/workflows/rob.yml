@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies # Pythonの依存環境のインストール
         run: | #このような書き方で複数行を一気に実行することができる。
           python -m pip install --upgrade pip
-          #pip install requests
+          pip install cchardet
       
       - name: Run rob.py # Pythonファイルの実行
         env:
