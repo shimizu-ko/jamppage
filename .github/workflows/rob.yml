@@ -2,10 +2,8 @@ name: rob
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  issue_comment:
+    types: [created]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,10 +28,15 @@ jobs:
         run: | #このような書き方で複数行を一気に実行することができる。
           python -m pip install --upgrade pip
           pip install requests
-          
+      - name: temp
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: echo "$BODY"
+      
+      
       - name: Run rob.py # Pythonファイルの実行
         run: |
-          python rob.py
+          python rob.py 
           
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
         run: |
