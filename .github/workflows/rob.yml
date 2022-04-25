@@ -25,12 +25,12 @@ jobs:
         run: | #このような書き方で複数行を一気に実行することができる。
           python -m pip install --upgrade pip
           pip install cchardet
+          pip install requests
       
       - name: Run rob.py # Pythonファイルの実行
         env:
           BODY: ${{ github.event.comment.body }}
         run: |
-          echo "$BODY"
           python rob.py -u "$BODY"
           
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
