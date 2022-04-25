@@ -1,14 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <title>robber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <form class="user-form" id="form">
-      <input type="text" id="url" placeholder="Search a url">
+      <input type="text" id="url" placeholder="Search a url"/>
+      <button type="submit">request</button>
+      <div class="git-info">
+        <input type="text" id="id" placeholder="your id"/>
+        <input type="text" id="token" placeholder="your token"/>
+      </div>
     </form>
     <br />
-    <div id="output"></div>
+    <div class="rob-style">
+      <iframe id="rob" name="rob" src="rob.html"></iframe>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
