@@ -8,7 +8,7 @@ const token = document.getElementById('token')
 const APIURL = 'https://api.github.com/repos/shimizu-ko/jumppage/issues/4/comments'
 
 window.onload = function(){
-  setInterval("reloadIframe()", 1000);
+  setInterval("reloadIframe()", 8000);
 }
 
 function reloadIframe(){
