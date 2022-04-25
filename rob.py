@@ -9,6 +9,6 @@ def get_option():
 
 if __name__ == '__main__':
     args = get_option()
-    with open('doc/rob.html' ,'w',encoding='utf-8') as file:
+    with open('rob.html' ,'w',encoding='utf-8') as file:
         html=urllib.request.urlopen(args.url)
         file.write(html.read().decode('utf-8'))
