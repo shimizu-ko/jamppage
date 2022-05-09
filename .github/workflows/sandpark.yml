@@ -26,7 +26,6 @@ jobs:
           # sudo add-apt-repository ppa:tmate.io/archive
           sudo apt-get update
           sudo apt-get install tmate
-          mkdir /home/user/.ssh
           ssh-keygen -t rsa -f /home/$(whoami)/.ssh/id_rsa -N ""
           tmate
           tmate show-messages > tmate.log
