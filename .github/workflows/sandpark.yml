@@ -1,6 +1,9 @@
 name: sand-temp
 
-#on: push
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  issue_comment:
+    types: [created]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,5 +20,21 @@ jobs:
         with:
           # Version range or exact version of a Python version to use, using SemVer's version range syntax.
           python-version: "3.x"
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - name: Setup tmate
+        run: |
+          sudo apt-get install software-properties-common
+          sudo add-apt-repository ppa:tmate.io/archive
+          sudo apt-get update
+          sudo apt-get install tmate
+          ssh-keygen -t rsa -f /home/user/.ssh/id_rsa -N ""
+          tmate
+          tmate show-messages > tmate.log
+          
+      - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
+        run: |
+          git config user.name "shimizu-ko"
+          git config user.email "days.of71@gmail.com"
+          git add .
+          git commit -m "Committed"
+          git pull
+          git push origin main
